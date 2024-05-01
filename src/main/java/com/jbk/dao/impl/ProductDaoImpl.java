@@ -62,9 +62,10 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public ProductEntity getProductById(long productId) {
 		try (Session session = sessionFactory.openSession()) {
-			ProductEntity productEntity = session.get(ProductEntity.class, productId);
-			if (productEntity != null) {
-				return productEntity;
+			ProductEntity prEntity = session.get(ProductEntity.class, productId);
+			if (prEntity != null) {
+			
+				return prEntity;
 			}
 		} catch (Exception e) {
 			throw new SomethingWentWrong("Something went wrong during getting Product By Id");
